@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="no-js hasSidebar hasPageActions hasBreadcrumb conceptual" lang="en-us" dir="ltr" data-authenticated="false" data-target="docs">
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta property="og:title" content="TCPView for Windows - Windows Sysinternals" />
+	<meta property="og:image" content="https://docs.microsoft.com/_themes/docs.theme/master/en-us/_themes/images/microsoft-header.png" />
+
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:site" content="@docsmsft" />
+	<meta name="twitter:title" content="TCPView for Windows - Windows Sysinternals" />
+	<meta name="twitter:description" content="Active socket command-line viewer." />
+	<meta name="twitter:image" content="https://docs.microsoft.com/_themes/docs.theme/master/en-us/_themes/images/microsoft-header.png" />
+	<meta name="twitter:image:alt" content="Microsoft Logo" />
+
+		<meta name="author" content="markruss" />
+<meta name="ms.author" content="markruss" />
+<meta name="breadcrumb_path" content="../bread/toc.json" />
+<meta name="ms.topic" content="system-utilities" />
+<meta name="ms.technology" content="system-utilities" />
+<meta name="ms.prod" content="windows-sysinternals" />
+<meta name="uhfHeaderId" content="MSDocsHeader-Sysinternals" />
+<meta name="TOCTitle" content="TCPView" />
+<meta name="ms:assetid" content="0797e73a-a0c2-4266-b821-50bc561da3a6" />
+<meta name="description" content="Active socket command-line viewer." />
+<meta name="ms:mtpsurl" content="https://technet.microsoft.com/en-us/Bb897437(v=MSDN.10)" />
+<meta name="ms.date" content="07/25/2011" />
+<meta name="search.ms_sitename" content="Docs" />
+<meta name="search.ms_docsetname" content="sysinternals" />
+<meta name="version" content="0" />
+<meta name="locale" content="en-us" />
+<meta name="site_name" content="Docs" />
+<meta name="search.ms_product" content="MSDN" />
+<meta name="depot_name" content="MSDN.sysinternals" />
+<meta name="updated_at" content="2017-10-13 03:05 PM" />
+<meta name="gitcommit" content="https://github.com/MicrosoftDocs/sysinternals/blob/f8c48fe7b73825da3911f36f0ec74ea97a593bce/sysinternals/downloads/tcpview.md" />
+<meta name="original_content_git_url" content="https://github.com/MicrosoftDocs/sysinternals/blob/live/sysinternals/downloads/tcpview.md" />
+<meta name="document_id" content="278fe4f3-0c9f-41ad-209a-aeda85d8756b" />
+<meta name="document_version_independent_id" content="7bbf6ef7-82c2-4b4d-2c13-186b5c0a5c20" />
+<meta name="page_type" content="conceptual" />
+<meta name="toc_rel" content="../toc.json" />
+<meta name="pdf_url_template" content="https://docs.microsoft.com/pdfstore/en-us/MSDN.sysinternals/{branchName}{pdfName}" />
+<meta name="word_count" content="337" />
+
+<link href="https://docs.microsoft.com/en-us/sysinternals/downloads/tcpview" rel="canonical">
+	<title>TCPView for Windows - Windows Sysinternals | Microsoft Docs</title>
+
+		<link rel="stylesheet" href="/_themes/docs.theme/master/en-us/_themes/css/b0935902.site-ltr.css ">
+
+	<link rel="stylesheet" href="/_themes/docs.theme/master/en-us/_themes/css/98ba6b6.conceptual.css ">
+
+
+	<script>
+	var msDocs = {
+		data:{
+			azureHeaderLocale: 'en-us',
+			contentLocale: 'en-us',
+			contentDir: 'ltr',
+			userLocale: 'en-us',
+			userDir: 'ltr',
+			pageTemplate: 'Conceptual',
+			brand: '',
+			context: {
+
+			},
+			hasComments: false,
+			feedbackSystem: 'None',
+			feedbackGitHubRepo: '',
+			feedbackProductUrl: '',
+			contentGitUrl: 'https://github.com/MicrosoftDocs/sysinternals/blob/live/sysinternals/downloads/tcpview.md',
+			forceVersionPicker:false		},
+		functions:{},
+		settings:{
+			extendBreadcrumb: false,
+			enableUHFPPE: false
+		}
+	};
+	if (!('Promise' in window && 'resolve' in window.Promise && 'reject' in window.Promise && 'all' in window.Promise && 'race' in window.Promise)) {
+		document.write('<script src="/_themes/docs.theme/master/en-us/_themes/global/js/6ee34c01.bluebird.min.js"><\/script>');
+	}
+	if (typeof fetch !== 'function') {
+		document.write('<script src="/_themes/docs.theme/master/en-us/_themes/global/js/d9fc435c.fetch.min.js"><\/script>');
+	}
+	</script>
+
+	<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js" integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT" crossorigin="anonymous"></script>
+	<script src="/_themes/docs.theme/master/en-us/_themes/global/js/9af523a1.localized-strings.js"></script>
+	<script src="/_themes/docs.theme/master/en-us/_themes/global/js/76725229.global.min.js"></script>
+
+</head>
+
+<body lang="en-us" dir="ltr">
+<div class="header-holder">
+		<div id="headerAreaHolder" data-bi-name="header">
+			<div id="uhf-placeholder"></div>
+		</div>
+	<div class="content-header uhf-container has-padding" data-bi-name="content-header">
+		<nav class="has-padding-none-mobile" data-bi-name="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList" role="navigation" aria-label="Breadcrumb">
+		<ul class="breadcrumbs">
+		</ul>
+		</nav>
+		<div class="content-header-controls exit-focus">
+			<button type="button" class="ap-collapse-behavior ap-expanded button-border" data-bi-name="ap-collapse">
+				<span class="docon docon-exit-mode"></span>
+Exit focus mode			</button>
+			
+		</div>
+		<div class="content-header-controls">
+			<button type="button" class="contents-button button-border" data-bi-name="contents-expand">
+				<span class="docon docon-menu"></span>
+Contents			</button>
+		</div>
+		<div class="action-bar">
+			<ul class="action-list">
+							<li id="contenteditbtn">
+									<a href="https://github.com/MicrosoftDocs/sysinternals/blob/live/sysinternals/downloads/tcpview.md" title="Edit This Document" data-bi-name="edit">
+									<span class="docon docon-edit-outline" aria-hidden="true"></span><span class="action-item-text">Edit</span>
+								</a>
+							</li>
+				<li>
+					<div class="sharing dropdown has-caret" auto-align>
+						<a href="#" class="dropdown-trigger" aria-haspopup="true" aria-controls="sharing-menu" aria-expanded="false" title="Share This Document" data-bi-name="share">
+							<span class="docon docon-sharing" aria-hidden="true"></span><span class="action-item-text">Share</span>
+						</a>
+						<div class="dropdown-menu" id="sharing-menu" role="menu">
+							<ul data-bi-name="share-links">
+								<li><a class="share-twitter" data-bi-name="twitter"><span class="docon docon-brand-twitter" aria-hidden="true"></span>Twitter</a></li>
+								<li><a class="share-linkedin" data-bi-name="linkedin"><span class="docon docon-brand-linkedin" aria-hidden="true"></span>LinkedIn</a></li>
+								<li><a class="share-facebook" data-bi-name="facebook"><span class="docon docon-brand-facebook" aria-hidden="true"></span>Facebook</a></li>
+								<li><a class="share-email" data-bi-name="email"><span class="docon docon-mail-message-fill" aria-hidden="true"></span>Email</a></li>
+							</ul>
+						</div>
+					</div>
+				</li>
+				<li>
+					<button class="toggle-theme" aria-label="toggle-theme" data-bi-name="select-theme"><span class="docon docon-sun"></span><span class="action-item-text">Theme</span></button>
+				</li>
+				<li class="is-unstyled-action-list-item">
+					<a class="docs-sign-in not-authenticated button is-text has-text-primary is-size-7" href="#">Sign in</a>
+					<div class="dropdown has-caret authenticated" auto-align>
+						<button class="dropdown-trigger button is-text is-radiusless" aria-label="Your Account" aria-haspopup="true" aria-controls="user-menu" aria-expanded="false">
+							<span class="image icon is-hidden-mobile" aria-hidden="true">
+								<img class="has-background-grey-light is-rounded" data-profile-property="avatarUrl">
+							</span>
+							<span class="is-size-7 is-truncated is-hidden-mobile" data-profile-property="userName"></span>
+							<span class="image icon is-hidden-tablet has-margin-none" aria-hidden="true">
+								<img class="has-background-grey-light is-rounded" data-profile-property="avatarUrl">
+							</span>
+						</button>
+						<div class="dropdown-menu box" id="user-menu" role="menu">
+							<div class="media is-user-dir">
+								<div class="media-left">
+									<span class="image is-64x64" aria-hidden="true">
+										<img class="has-background-grey-light is-rounded" data-profile-property="avatarUrl">
+									</span>
+								</div>
+								<div class="media-content">
+									<p class="title has-margin-top-small">
+										<span class="is-truncated" style="max-width: 200px" data-profile-property="userName"></span>
+									</p>
+									<p class="subtitle">
+										<span class="is-truncated" style="max-width: 200px" data-profile-property="upn"></span>
+									</p>
+								</div>
+							</div>
+							<ul class="is-unstyled has-margin-none">
+								<li><a href="/profile" data-profile-property="profileUrl">Profile</a></li>
+								<li><a class="docs-sign-out" href="#">Sign out</a></li>
+							</ul>
+						</div>
+					</div>
+				</li>
+			</ul>
+			<button type="button" class="contents-button" aria-label="Contents" data-bi-name="contents-expand-">
+				<span class="docon docon-editor-list-bullet"></span><span>Contents</span>
+			</button>
+		</div>
+	</div>
+	<div id="disclaimer-holder" class="disclaimer-holder"></div>
+	</div>
+
+	<div class="mainContainer uhf-container  has-top-padding " data-bi-name="body">
+		
+		<div class="columns ">
+
+			<section class="primary-holder column is-two-thirds-tablet is-three-quarters-desktop">
+				<div class="columns ">
+
+					<div id="page-actions" class="right-container column is-one-quarter is-one-fifth-desktop is-hidden-mobile is-hidden-tablet-only" data-bi-name="pageactions" role="complementary" aria-label="Page Actions">
+							<nav id="side-doc-outline" class="doc-outline" data-bi-name="intopic toc" role="navigation" aria-label="On page navigation">
+								<h3>In this article</h3>
+							</nav>
+					</div>
+
+
+				<div id="main-column" class="column  is-full is-four-fifths-desktop ">
+					
+					<main id="main" role="main" class="content" data-bi-name="content" lang="en-us" dir="ltr">
+
+
+
+						<h1 id="tcpview-v305" sourcefile="downloads/tcpview.md" sourcestartlinenumber="10" sourceendlinenumber="11">TCPView v3.05</h1>
+
+						<ul class="metadata page-metadata" data-bi-name="page info" lang="en-us" dir="ltr">
+							<li class="displayDate loading">
+								<span aria-hidden="true" class="docon docon-calendar"></span>
+								<time role="presentation" datetime="2011-07-25T00:00:00.000Z" data-article-date-source="ms.date">07/25/2011</time>
+							</li>
+								<li class="readingTime">
+									<span aria-hidden="true" class="docon docon-clock"></span>
+									2 minutes to read
+								</li>
+							<li class="contributors-holder">
+								<span class="contributors-text">Contributors</span>
+								<ul class="contributors" data-bi-name="contributors">
+											<li><a href="https://github.com/markruss" title="markruss" data-bi-name="contributorprofile"><img src="https://docs.microsoft.com/_themes/docs.theme/master/en-us/_themes/images/contributor.svg" data-src="https://github.com/markruss.png?size=32" alt="markruss"></a></li>
+											<li><a href="https://github.com/v-kents" title="Kent Sharkey" data-bi-name="contributorprofile"><img src="https://docs.microsoft.com/_themes/docs.theme/master/en-us/_themes/images/contributor.svg" data-src="https://github.com/v-kents.png?size=32" alt="Kent Sharkey"></a></li>
+								</ul>
+							</li>
+
+						</ul>
+
+						<nav id="center-doc-outline" class="doc-outline is-hidden-desktop" data-bi-name="intopic toc" role="navigation" aria-label="On page navigation">
+							<h3>In this article</h3>
+						</nav>
+
+
+
+						<!-- <content> -->
+							
+<p><strong>By Mark Russinovich</strong></p>
+<p>Published: July 25, 2011</p>
+<p><a href="https://download.sysinternals.com/files/TCPView.zip" data-linktype="external"><img src="/en-us/media/landing/sysinternals/download_sm.png" alt="Download" data-linktype="absolute-path"></a> <a href="https://download.sysinternals.com/files/TCPView.zip" data-linktype="external"><strong>Download TCPView</strong></a> <strong>(285 KB)</strong><br><strong>Run now</strong> from <a href="https://live.sysinternals.com/Tcpview.exe" data-linktype="external">Sysinternals Live</a>.</p>
+<h2 id="introduction">Introduction</h2>
+<p>TCPView is a Windows program that will show you detailed listings of all
+TCP and UDP endpoints on your system, including the local and remote
+addresses and state of TCP connections. On Windows Server 2008, Vista,
+and XP, TCPView also reports the name of the process that owns the
+endpoint. TCPView provides a more informative and conveniently presented
+subset of the Netstat program that ships with Windows. The TCPView
+download includes Tcpvcon, a command-line version with the same
+functionality.</p>
+<p><img src="/en-us/media/landing/sysinternals/tcpview.jpg" alt="TCP View screenshot" data-linktype="absolute-path"></p>
+<h2 id="using-tcpview">Using TCPView</h2>
+<p>When you start TCPView it will enumerate all active TCP and UDP
+endpoints, resolving all IP addresses to their domain name versions. You
+can use a toolbar button or menu item to toggle the display of resolved
+names. On Windows XP systems, TCPView shows the name of the process that
+owns each endpoint.</p>
+<p>By default, TCPView updates every second, but you can use the
+<strong>Options|Refresh Rate</strong> menu item to change the rate. Endpoints that
+change state from one update to the next are highlighted in yellow;
+those that are deleted are shown in red, and new endpoints are shown in
+green.</p>
+<p>You can close established TCP/IP connections (those labeled with a state
+of ESTABLISHED) by selecting <strong>File|Close Connections</strong>, or by
+right-clicking on a connection and choosing <strong>Close Connections</strong> from
+the resulting context menu.</p>
+<p>You can save TCPView&#39;s output window to a file using the <strong>Save</strong> menu
+item.  </p>
+<h2 id="using-tcpvcon">Using Tcpvcon</h2>
+<p>Tcpvcon usage is similar to that of the built-in Windows netstat
+utility:</p>
+<p><strong>Usage: tcpvcon [-a] [-c] [-n] [process name or PID]</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>-a</strong></td>
+<td>Show all endpoints (default is to show established TCP connections).</td>
+</tr>
+<tr>
+<td><strong>-c</strong></td>
+<td>Print output as CSV.</td>
+</tr>
+<tr>
+<td><strong>-n</strong></td>
+<td>Don&#39;t resolve addresses.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="microsoft-tcpview-kb-article">Microsoft TCPView KB Article</h2>
+<p>This Microsoft KB article references TCPView:</p>
+<p><a href="http://support.microsoft.com/kb/816944" data-linktype="external">816944: &quot;Unexpected Error 0x8ffe2740 Occurred&quot; Error Message When You
+Try to Start a Web Site</a></p>
+<p><a href="https://download.sysinternals.com/files/TCPView.zip" data-linktype="external"><img src="/en-us/media/landing/sysinternals/download_sm.png" alt="Download" data-linktype="absolute-path"></a> <a href="https://download.sysinternals.com/files/TCPView.zip" data-linktype="external"><strong>Download TCPView</strong></a> <strong>(285 KB)</strong></p>
+<p><strong>Run now</strong> from <a href="https://live.sysinternals.com/Tcpview.exe" data-linktype="external">Sysinternals Live</a>.</p>
+<p><strong>Runs on:</strong></p>
+<ul>
+<li>Client: Windows Vista and higher.</li>
+<li>Server: Windows Server 2008 and higher.</li>
+</ul>
+
+						<!-- </content> -->
+							
+						</main>
+
+						<!-- feedback section -->
+
+
+				
+						<!-- end feedback section -->
+
+						<div class="footerContainer is-visible-interactive ">
+<footer id="footer-interactive" data-bi-name="footer" class="footer-layout">
+
+    <a data-mscc-ic="false" class="locale-selector-link" href="#" data-bi-name="select-locale"></a>
+
+    <ul class="links" data-bi-name="footerlinks">
+		<li><a data-mscc-ic="false" href="https://docs.microsoft.com/previous-versions/" data-bi-name="archivelink">Previous Version Docs</a></li>
+		<li><a data-mscc-ic="false" href="https://docs.microsoft.com/teamblog" data-bi-name="bloglink">Blog</a></li>
+		<li><a data-mscc-ic="false" href="https://docs.microsoft.com/contribute" data-bi-name="contributorGuide">Contribute</a></li>
+			<li><a data-mscc-ic="false" href="https://go.microsoft.com/fwlink/?LinkId=521839" data-bi-name="privacy">Privacy &amp; Cookies</a></li>
+		<li><a data-mscc-ic="false" href="/en-us/legal/termsofuse" data-bi-name="termsofuse">Terms of Use</a></li>
+		<li><a data-mscc-ic="false" href="https://aka.ms/sitefeedback" data-bi-name="feedback">Site Feedback</a></li>
+		<li><a data-mscc-ic="false" href="https://www.microsoft.com/en-us/legal/intellectualproperty/Trademarks/EN-US.aspx" data-bi-name="trademarks">Trademarks</a></li>
+    </ul>
+</footer>						</div>
+					</div>
+
+					<!--end of div.columns -->
+
+				</div>
+			
+			<!--end of .primary-holder -->
+			</section>
+
+				<div id="left-container" class="left-container column is-one-third-tablet is-one-quarter-desktop">
+					<nav class="sidebar" id="sidebar" data-bi-name="left toc" role="navigation" aria-label="Main Navigation">
+						<button class="sidebar-header" type="button" aria-label="Close" data-bi-name="contents-collapse">
+							<span>Contents</span>
+							<span class="docon docon-navigate-close" aria-hidden="true"></span>
+						</button>
+						<div id="sidebarContent">
+							<div class="filterHolder">
+							</div>
+							<nav class="toc"></nav>
+							<div class="pdfDownloadHolder"></div>
+						</div>
+					</nav>
+				</div>
+
+			<aside id="interactive-container" class="interactive-container is-visible-interactive column has-background-light ">
+			</aside>
+		</div>
+
+		<!--end of .mainContainer -->
+	</div>
+
+	<div id="openFeedbackContainer" class="openfeedback-container"></div>
+
+	<div class="footerContainer is-hidden-interactive ">
+<footer id="footer" data-bi-name="footer" class="footer-layout uhf-container has-padding" role="contentinfo">
+
+    <a data-mscc-ic="false" class="locale-selector-link" href="#" data-bi-name="select-locale"></a>
+
+    <ul class="links" data-bi-name="footerlinks">
+		<li><a data-mscc-ic="false" href="https://docs.microsoft.com/previous-versions/" data-bi-name="archivelink">Previous Version Docs</a></li>
+		<li><a data-mscc-ic="false" href="https://docs.microsoft.com/teamblog" data-bi-name="bloglink">Blog</a></li>
+		<li><a data-mscc-ic="false" href="https://docs.microsoft.com/contribute" data-bi-name="contributorGuide">Contribute</a></li>
+			<li><a data-mscc-ic="false" href="https://go.microsoft.com/fwlink/?LinkId=521839" data-bi-name="privacy">Privacy &amp; Cookies</a></li>
+		<li><a data-mscc-ic="false" href="/en-us/legal/termsofuse" data-bi-name="termsofuse">Terms of Use</a></li>
+		<li><a data-mscc-ic="false" href="https://aka.ms/sitefeedback" data-bi-name="feedback">Site Feedback</a></li>
+		<li><a data-mscc-ic="false" href="https://www.microsoft.com/en-us/legal/intellectualproperty/Trademarks/EN-US.aspx" data-bi-name="trademarks">Trademarks</a></li>
+    </ul>
+</footer>	</div>
+
+	<div class="action-panel"></div>
+</body>
+</html>
